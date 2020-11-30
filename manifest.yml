@@ -1,0 +1,6 @@
+---
+applications:
+- name: Aplikacja
+memory: 256M
+buildpack: sdk-for-nodejs
+instances: 1

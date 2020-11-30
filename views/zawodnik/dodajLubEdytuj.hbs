@@ -1,0 +1,56 @@
+<h3>{{viewTitle}}</h3>
+
+<form action="/zawodnik" method="POST" autocomplete="off">
+    <input type="hidden" name="_id" value="{{zawodnik._id}}">
+    <div class="form-group">
+        <label>Imię</label>
+        <input type="text" class="form-control" name="imie" value="{{zawodnik.imie}}">
+        <div class="text-danger">
+            {{zawodnik.imieError}}</div>
+    </div>
+    <div class="form-group">
+        <label>Nazwisko</label>
+        <input type="text" class="form-control" name="nazwisko" value="{{zawodnik.nazwisko}}">
+        <div class="text-danger">
+            {{zawodnik.nazwiskoError}}</div>
+    </div>
+    <div class="form-group">
+        <label>Kraj</label>
+        <input type="text" class="form-control" name="kraj" value="{{zawodnik.kraj}}">
+        <div class="text-danger">
+            {{zawodnik.krajError}}</div>
+    </div>
+    <div class="form-group">
+        <label>Klub</label>
+        <input type="text" class="form-control" name="klub" value="{{zawodnik.klub}}">
+        <div class="text-danger">
+            {{zawodnik.klubError}}</div>
+    </div>
+    <div class="form-group">
+        <label>Pozycja</label>
+        <input type="text" class="form-control" name="pozycja" value="{{zawodnik.pozycja}}">
+        <div class="text-danger">
+            {{zawodnik.pozycjaError}}</div>
+    </div>
+    <div class="form-group">
+        <label>Data urodzenia</label>
+        <input type="date" class="form-control" name="data_urodzenia" id="data">
+        <div class="text-danger">
+            {{zawodnik.dataUrodzeniaError}}</div>
+    </div>
+    <div class="form-group">
+        <label>Wzrost</label>
+        <input type="number" class="form-control" name="wzrost" value="{{zawodnik.wzrost}}">
+        <div class="text-danger">
+            {{zawodnik.wzrostError}}</div>
+    </div>
+    
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary"><i class="fa fa-database"></i> Zatwierdź</button>
+        <a class="btn btn-secondary" href="/zawodnik/lista"><i class="fa fa-list-alt"></i> Wyświetl zawodników</a>
+    </div>
+</form>
+
+<script>
+    document.getElementById('data').value = new Date('{{zawodnik.data_urodzenia}}').toISOString().slice(0,10);
+</script>

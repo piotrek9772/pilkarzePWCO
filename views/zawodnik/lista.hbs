@@ -1,0 +1,34 @@
+<h3> Lista zawodników</h3>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Imię</th>
+            <th>Nazwisko</th>
+            <th>Kraj</th>
+            <th>Klub</th>
+            <th>Pozycja</th>
+            <th>Data urodzenia</th>
+            <th>Wzrost</th>
+            <th>Opcje</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each list}}
+        <tr>
+            <td> {{this.imie}} </td>
+            <td> {{this.nazwisko}} </td>
+            <td> {{this.kraj}} </td>
+            <td> {{this.klub}} </td>
+            <td> {{this.pozycja}} </td>
+            <td> {{moment this.data_urodzenia format="DD-MM-YYYY"}} </td>
+            <td> {{this.wzrost}} </td>
+            <td>
+                <a href="/zawodnik/{{this._id}}"><i class="fa fa-pencil-square fa-lg" aria-hidden="true"></i></a>
+                <a href="/zawodnik/usun/{{this._id}}" onclick="return confirm('Czy na pewno chcesz usunąć zawodnika?');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+<a class="btn btn-secondary" href="/zawodnik"><i class="fa fa-plus"></i> Dodaj zawodnika</a>
+
